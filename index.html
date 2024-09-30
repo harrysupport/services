@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="https://cino-cafe.github.io/harrysupport/hub-image.jpg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Support Services</title>
+  
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Header Styling */
+    header {
+      padding: 50px 20px;
+      background-image: linear-gradient(135deg, #0077b6, #0096c7, #00b4d8, #48cae4);
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header img {
+      max-width: 150px; /* Adjust logo size */
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .explore-btn {
+      padding: 15px 30px;
+      background-color: #ffba08;
+      border: none;
+      color: #333;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .explore-btn:hover {
+      background-color: #faa307;
+      transform: scale(1.05);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Service Section */
+    #services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+      gap: 30px;
+      margin-top: 50px;
+      padding: 0 20px; /* Padding for smaller screens */
+    }
+
+    .service-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card h2 {
+      font-size: 1.5em;
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .service-card i {
+      font-size: 2.5em;
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+
+    /* Background decoration for each service */
+    .service-card:before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: rgba(0, 183, 255, 0.147);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px 0;
+      background-color: #333;
+      color: #fff;
+    }
+
+    footer p {
+      font-size: 1.1em;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Smooth scroll for "Explore Services" button */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .free-services {
+  background-color: rgba(240, 248, 255, 0.9); /* Soft light blue for a gentle appearance */
+  color: #0077b6; /* Darker blue for text to maintain consistency */
+  padding: 20px; /* Spacious feel */
+  border-radius: 15px; /* Rounded corners for a softer look */
+  font-size: 1.2em; /* Readable font size */
+  margin: 20px 0; /* Spacing above and below */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.free-services:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  color: #0077b6; /* Primary color for close button */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #005f8d; /* Darker shade on hover */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #0077b6; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+  background-color: #005f8d; /* Darker shade on hover */
+}
+
+h2 {
+  color: #0077b6; /* Heading color */
+  font-family: 'Arial', sans-serif; /* Professional font */
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background with opacity */
+}
+
+.modal-content {
+  background-color: #ffffff; /* White background */
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  width: 90%; /* Full width on smaller screens */
+  max-width: 600px; /* Limit max width */
+  animation: fadeIn 0.3s; /* Animation for modal appearance */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  position: relative; /* Add this line */
+}
+
+
+.close {
+  color: #0077b6; /* Primary color for close button */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #005f8d; /* Darker shade on hover */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text {
+  font-family: 'Arial', sans-serif; /* Consistent font */
+  line-height: 1.6; /* Increased line height for readability */
+  color: #333; /* Dark gray for text */
+}
+
+h2 {
+  color: #0077b6; /* Heading color */
+  font-family: 'Arial', sans-serif; /* Professional font */
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #0077b6; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+  background-color: #005f8d; /* Darker shade on hover */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Keep this to center vertically */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  position: relative; /* Required for absolute positioning of the image */
+}
+
+.modal-image {
+  position: absolute; /* Position the image absolutely */
+  top: 10px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  margin: 0; /* Remove any default margin */
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://cino-cafe.github.io/harrysupport/hub-image.jpg" alt="Your Logo"> <!-- Replace with your logo -->
+    <h1>Welcome to Harry Network Support Services</h1>
+    <p>Powering your digital life with cutting-edge technology.</p>
+    <button class="explore-btn" onclick="window.location.href='mailto:harry.network.service@gmail.com?subject=Request%20to%20Get%20Started%20with%20Harry%20Network%20Services&body=Hi%20Harry%20Network%20Support%20Team,%0D%0A%0D%0AI%27m%20interested%20in%20getting%20started%20with%20your%20network%20support%20services.%20Could%20you%20please%20let%20me%20know%20the%20next%20steps%20to%20begin%20using%20your%20services?%0D%0A%0D%0AThanks%20so%20much,%0D%0A[Your%20Name]';">
+      Get Started Using These Services
+    </button>
+  </header>
+  
+  <div class="free-services">
+    All services are completely free! Enjoy reliable support and technology solutions.
+  </div>
+
+
+  <!-- Button to Open the Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="https://cino-cafe.github.io/harrysupport/hub-image.jpg" alt="Icon" width="40" height="40" class="modal-image">
+    <h2>About Us</h2>
+    <br>
+    <p class="text">My Name is <strong>Harry Paolella</strong>, and I am 18 years old. Currently, I am a student at De Montfort University, studying Cyber Security.</p>
+    <br>
+    <p class="text">I created this service to help and support both technical and non-technical users.</p>
+    <br>
+    <p class="text">My aim is to provide reliable network support solutions that enhance your online experience while ensuring your security and privacy.</p>
+  </div>
+</div>
+
+
+
+
+  
+
+  <section id="services">
+    <div class="service-card">
+      <i class="fas fa-cloud"></i>
+      <h2>Cloud Server</h2>
+      <p>Store and share your files securely with our Nextcloud services.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-shield-alt"></i>
+      <h2>VPN Server</h2>
+      <p>Protect your privacy with our high-speed VPN solutions.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-ban"></i>
+      <h2>Ad Blocking</h2>
+      <p>Enjoy a cleaner browsing experience with Pi-hole ad-blocking.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-newspaper"></i>
+      <h2>News Server</h2>
+      <p>Stay updated with the latest news, customized just for you.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-robot"></i>
+      <h2>AI Assistance</h2>
+      <p>Leverage AI for real-time support and guidance.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-ticket-alt"></i>
+      <h2>Ticketing System</h2>
+      <p>Report issues efficiently with our easy-to-use ticketing system.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-phone"></i>
+      <h2>Telephone System</h2>
+      <p>Telephone system enabling you to reach support and connect with other users.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-plus"></i>
+      <h2>And Much More...</h2>
+      <p>We also offer a range of additional services to further support your needs.</p>
+    </div>
+  </section>
+
+  <footer>
+    <button class="explore-btn" id="myBtn">About Us</button>
+    <br>
+    <br>
+    <p>&copy; Harry Network Support Services. All rights reserved.</p>
+    
+  </footer>
+
+  <script>
+    // Smooth scrolling to services section
+    function scrollToServices() {
+      document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+<script>
+  // Redirect to a custom URL
+  function goToCustomURL() {
+    window.location.href = "http://harrysupport.com";  // Replace with your actual URL
+  }
+</script>
+
+<script>
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+
+</body>
+</html>
+
