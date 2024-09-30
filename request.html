@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Services - Harry Network Support Services</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00c6ff, #007bff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 80px; /* Adjust the width as needed */
+            margin-bottom: 20px;
+            animation: logoFadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes logoFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin: 20px 0;
+            color: #ffffff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: formDropIn 0.5s ease-in-out;
+        }
+
+        @keyframes formDropIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
+        }
+
+        /* Increase the font size of the textarea */
+        textarea {
+            font-size: 1.2em; /* Adjusted font size */
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative; /* Added for ripple effect */
+            overflow: hidden; /* Prevent overflow of ripple effect */
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            width: 300%;
+            height: 300%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.6s, opacity 0.6s;
+            opacity: 0;
+        }
+
+        button:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 450px) {
+            form {
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add your logo here -->
+    <img src="https://cino-cafe.github.io/harrysupport/hub-image.jpg" alt="Logo" class="logo"> <!-- Replace with your logo path -->
+
+    <h2>Request Our Services</h2>
+    <form id="service-request-form" action="https://formcarry.com/s/yDdLq0TGlSV" method="POST">
+        <input type="text" id="name" name="name" placeholder="Your Full Name..." required>
+        <input type="email" id="email" name="email" placeholder="Your Email..." required>
+        <textarea id="message" name="message" placeholder="Reason for Access..." rows="4"></textarea>
+        <button type="submit">Submit Request</button>
+    </form>
+</body>
+</html>
