@@ -24,7 +24,7 @@
       background-color: #f4f4f9;
       color: #333;
       text-align: center;
-      padding: 20px;
+      padding: 0px;
     }
 
     /* Header Styling */
@@ -326,12 +326,59 @@ button:hover {
   margin: 0; /* Remove any default margin */
 }
 
+/* General styles for popup */
+.custom-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 9999; /* High z-index to stay above other elements */
+}
 
+.custom-popup-content {
+  position: relative;
+  margin: 10% auto; /* Center popup */
+  width: 70%;
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.custom-popup-content video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
 
+.close-popup-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 40px; /* Larger clickable area */
+  height: 40px; /* Larger clickable area */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease-in-out;
+  border-radius: 50%; /* Makes the hit area circular */
+}
 
-
+.close-popup-btn:hover {
+  color: red;
+  background-color: rgba(0, 0, 0, 0.1); /* Adds a subtle background highlight */
+}
   </style>
+
 </head>
 <body>
   <header>
@@ -342,6 +389,22 @@ button:hover {
       Get Started Using These Services
     </button>
   </header>
+
+
+<!-- Custom Popup for Video -->
+<div id="customVideoPopup" class="custom-popup">
+  <div class="custom-popup-content">
+    <button class="close-popup-btn" id="closeVideoPopup" aria-label="Close Popup">×</button>
+    <video id="popupVideo" controls>
+      <source src="/video/advert-harrysupport.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+
+
+
   
   <div class="free-services">
     All services are completely free! Enjoy reliable support and technology solutions.
@@ -430,6 +493,9 @@ button:hover {
     <button class="explore-btn" id="myBtn">About Us</button>
     <br>
     <br>
+    <button class="explore-btn" id="triggerVideoPopup">Watch Advertisement</button>
+    <br>
+    <br>
     <p>&copy; Harry Network Support Services. All rights reserved.</p>
     
   </footer>
@@ -474,6 +540,50 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+</script>
+
+<script>
+// Get the button, popup, video, and close button elements
+const triggerButton = document.getElementById("triggerVideoPopup");
+const popup = document.getElementById("customVideoPopup");
+const closeButton = document.getElementById("closeVideoPopup");
+const video = document.getElementById("popupVideo");
+
+// Open popup on button click
+triggerButton.addEventListener("click", () => {
+  popup.style.display = "block";
+  video.currentTime = 0; // Ensure video starts from the beginning
+  video.play(); // Automatically start playing the video when the popup opens
+});
+
+// Close popup on close button click
+closeButton.addEventListener("click", () => {
+  closePopup();
+});
+
+// Close popup if clicked outside of the content area
+window.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    closePopup();
+  }
+});
+
+// Close popup when the video finishes playing
+video.addEventListener("ended", () => {
+  closePopup();
+});
+
+// Function to handle popup close logic
+function closePopup() {
+  popup.style.display = "none";
+  video.pause(); // Pause the video
+  video.currentTime = 0; // Reset the video to the beginning
+}
+
+// Ensure autoplay is functional (needed for some browsers)
+video.setAttribute("muted", "true"); // Some browsers require videos to be muted for autoplay
+video.setAttribute("playsinline", "true"); // Allows autoplay on mobile browsers
 
 </script>
 
