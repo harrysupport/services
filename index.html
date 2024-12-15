@@ -377,6 +377,27 @@ button:hover {
   color: red;
   background-color: rgba(0, 0, 0, 0.1); /* Adds a subtle background highlight */
 }
+
+/* Adjust for small screens */
+@media (max-width: 600px) {
+  .custom-popup-content {
+    width: 90%; /* Increase width for smaller devices */
+    max-width: none; /* Remove max-width to allow more flexibility */
+  }
+
+  .custom-popup-content video {
+    width: 100%; /* Make the video fill the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+/* Adjust for even smaller screens like iPhones */
+@media (max-width: 400px) {
+  .custom-popup-content {
+    width: 95%; /* Even more width for very small devices */
+  }
+}
+
   </style>
 
 </head>
