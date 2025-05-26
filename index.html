@@ -554,6 +554,128 @@
 }
 
 
+.product {
+    background: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin-top: 10px;
+    color: #0077b6;
+}
+
+.product p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Cool Tool Section */
+#cool-tool {
+    background: white;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#cool-tool h2 {
+    font-size: 2em;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+#cool-tool p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Slides */
+.slide {
+    display: none;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Show the first image by default */
+.slide.active {
+    display: block;
+}
+
+/* Left & Right Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 119, 182, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: #005f8d;
+}
+
+/* Dots Indicator */
+.dots-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #0077b6;
+}
+
+.styled-paragraph {
+  font-family: sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-left: 3px solid #007BFF;
+  border-radius: 5px;
+}
 
 
     @media (max-width: 768px) {
@@ -625,13 +747,9 @@
   </div>
 </div>
 
-
   <div class="free-services">
     A personal project i created providing free IT solutions for my family and friends.
-    
   </div>
-
-
   <!-- Button to Open the Modal -->
 
 
@@ -653,10 +771,6 @@
 </div>
 
 
-
-
-  
-
   <section id="services">
     <div class="service-card">
       <i class="fas fa-cloud"></i>
@@ -675,8 +789,8 @@
     </div>
     <div class="service-card">
       <i class="fas fa-newspaper"></i>
-      <h2>News Service</h2>
-      <p>Stay updated with the latest news, customized just for you.</p>
+      <h2>News Services</h2>
+      <p>Get the latest news from our company, including upgrades, features, bug fixes, and more!</p>
     </div>
     <div class="service-card">
       <i class="fas fa-robot"></i>
@@ -710,7 +824,6 @@
     </div>
   </section>
 
-
 <!-- Reviews Section -->
 <section id="reviews">
   <h2>Feedback</h2>
@@ -734,8 +847,42 @@
 </section>
 
 
+<section id="cool-tool">
+  <h2>HSS ToolKit - IT Support</h2>
+  <p class="styled-paragraph">
+    Discover my latest tool – designed to make IT troubleshooting easier than ever for everyone.
+  </p>
+  <p class="styled-paragraph">
+    It comes packed with features such as remote management for offsite support and a built-in updater to ensure you always have the latest features and fixes.
+  </p>
 
 
+  <div class="slider-container">
+      <div class="slider">
+          <img src="IT_Tool_Kit/Tool-case.jpg" class="slide active">
+          <img src="IT_Tool_Kit/Tool-case2.jpg" class="slide">
+          <img src="IT_Tool_Kit/Tool.png" class="slide">
+          <img src="IT_Tool_Kit/Tool2.png" class="slide">
+          <img src="IT_Tool_Kit/Tool-guide.png" class="slide">
+          <img src="IT_Tool_Kit/Tool-remote.png" class="slide">
+          <img src="IT_Tool_Kit/Tool3.png" class="slide">
+      </div>
+      <!-- Left and Right Arrows -->
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+  <!-- Dots Indicator -->
+  <div class="dots-container">
+      <span class="dot active" onclick="setCurrentSlide(1)"></span>
+      <span class="dot" onclick="setCurrentSlide(2)"></span>
+      <span class="dot" onclick="setCurrentSlide(3)"></span>
+      <span class="dot" onclick="setCurrentSlide(4)"></span>
+      <span class="dot" onclick="setCurrentSlide(5)"></span>
+      <span class="dot" onclick="setCurrentSlide(6)"></span>
+      <span class="dot" onclick="setCurrentSlide(7)"></span>
+  </div>
+</section>
 
 
 
@@ -750,7 +897,6 @@
     <div class="link">
       <p> <i class="fab fa-linkedin"></i> Linkedin | <a href="https://www.linkedin.com/in/harry-paolella-722723266/?originalSubdomain=uk" title="Harry LinkedIn">Harry Paolella</a></p>
     </div>
-
   </footer>
 
 
@@ -916,48 +1062,41 @@ window.onclick = function(event) {
 </script>
 
 <script>
-// Get the button, popup, video, and close button elements
-const triggerButton = document.getElementById("triggerVideoPopup");
-const popup = document.getElementById("customVideoPopup");
-const closeButton = document.getElementById("closeVideoPopup");
-const video = document.getElementById("popupVideo");
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
-// Open popup on button click
-triggerButton.addEventListener("click", () => {
-  popup.style.display = "block";
-  video.currentTime = 0; // Ensure video starts from the beginning
-  video.play(); // Automatically start playing the video when the popup opens
-});
-
-// Close popup on close button click
-closeButton.addEventListener("click", () => {
-  closePopup();
-});
-
-// Close popup if clicked outside of the content area
-window.addEventListener("click", (event) => {
-  if (event.target === popup) {
-    closePopup();
-  }
-});
-
-// Close popup when the video finishes playing
-video.addEventListener("ended", () => {
-  closePopup();
-});
-
-// Function to handle popup close logic
-function closePopup() {
-  popup.style.display = "none";
-  video.pause(); // Pause the video
-  video.currentTime = 0; // Reset the video to the beginning
+// Function to move slides forward or backward
+function moveSlide(step) {
+    slideIndex += step;
+    if (slideIndex >= slides.length) slideIndex = 0;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    updateSlides();
 }
 
-// Ensure autoplay is functional (needed for some browsers)
-video.setAttribute("muted", "true"); // Some browsers require videos to be muted for autoplay
-video.setAttribute("playsinline", "true"); // Allows autoplay on mobile browsers
+// Function to go to a specific slide
+function setCurrentSlide(n) {
+    slideIndex = n - 1;
+    updateSlides();
+}
+
+// Update slide visibility and dots
+function updateSlides() {
+    slides.forEach((slide, index) => {
+        slide.classList.toggle("active", index === slideIndex);
+    });
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === slideIndex);
+    });
+}
+
+// Initialize first slide
+updateSlides();
 
 </script>
+
+
 
 </body>
 </html>
