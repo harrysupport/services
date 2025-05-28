@@ -1097,6 +1097,51 @@ updateSlides();
 </script>
 
 
+<script>
+// Get the button, popup, video, and close button elements
+const triggerButton = document.getElementById("triggerVideoPopup");
+const popup = document.getElementById("customVideoPopup");
+const closeButton = document.getElementById("closeVideoPopup");
+const video = document.getElementById("popupVideo");
+
+// Open popup on button click
+triggerButton.addEventListener("click", () => {
+  popup.style.display = "block";
+  video.currentTime = 0; // Ensure video starts from the beginning
+  video.play(); // Automatically start playing the video when the popup opens
+});
+
+// Close popup on close button click
+closeButton.addEventListener("click", () => {
+  closePopup();
+});
+
+// Close popup if clicked outside of the content area
+window.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    closePopup();
+  }
+});
+
+// Close popup when the video finishes playing
+video.addEventListener("ended", () => {
+  closePopup();
+});
+
+// Function to handle popup close logic
+function closePopup() {
+  popup.style.display = "none";
+  video.pause(); // Pause the video
+  video.currentTime = 0; // Reset the video to the beginning
+}
+
+// Ensure autoplay is functional (needed for some browsers)
+video.setAttribute("muted", "true"); // Some browsers require videos to be muted for autoplay
+video.setAttribute("playsinline", "true"); // Allows autoplay on mobile browsers
+
+</script>
+
+
 
 </body>
 </html>
