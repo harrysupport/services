@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ethical Hacking Game Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-layer"></div>
+
+  <nav>
+    <div class="logo">HACK HARRY</div>
+    <ul>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Rules</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>🛡 Challenge Your Cyber Skills</h1>
+    <p>Dive into realistic, legal hacking simulations that teach, challenge, and reward.</p>
+    <a href="#" class="cta-btn">Explore Games</a>
+  </header>
+
+
+  <section id="features">
+    <h2 class="section-title">Why Hack Harry</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🎓</div>
+        <h4>Designed for Learning</h4>
+        <p>Step-by-step lessons and guided challenges for all levels.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h4>Community & Collaboration</h4>
+        <p>Join forums, teams, and compete on leaderboards.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚙️</div>
+        <h4>Realistic Environments</h4>
+        <p>Practice on safe, simulated networks and applications.</p>
+      </div>
+  </section>
+
+
+  <section id="live-users" style="text-align:center; padding:2rem 0; background:#121212; color:#eee; border-radius:12px; max-width:400px; margin:2rem auto; font-family: 'Rajdhani', sans-serif;">
+  <h2 style="margin-bottom:1rem;">👥 Live Users Online</h2>
+  <p style="font-size:2.5rem; font-weight:700;" id="user-count">Loading...</p>
+  <p style="font-size:0.9rem; color:#aaa;">Approximate count of site visitors</p>
+</section>
+
+<script>
+  const userCountEl = document.getElementById('user-count');
+  const namespace = 'hackharry';  // You can change this to any unique string
+  const key = 'liveusers';
+
+  // Call CountAPI to increment and get the count
+  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(response => response.json())
+    .then(data => {
+      userCountEl.textContent = data.value;
+    })
+    .catch(() => {
+      userCountEl.textContent = 'N/A';
+    });
+</script>
+
+
+
+
+
+<section class="testimonial-carousel">
+  <h2 class="testimonial-title">🗣️ What People Are Saying</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Hack Harry made learning fun. I cracked my first challenge in under 10 minutes!"</p>
+      <p class="testimonial-author">— Jamie L.</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"As a beginner, I always felt welcome. These games are super addictive."</p>
+      <p class="testimonial-author">— Priya K.</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"It’s better than most training platforms. It's like a game, but I’m actually learning!"</p>
+      <p class="testimonial-author">— Malik R.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="leaderboard">
+  <h2 class="section-title">🏆 Leaderboard</h2>
+  <div id="leaderboard-table">Loading leaderboard...</div>
+</section>
+
+
+<script>
+  const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSgZ33MOpdm3HS6u3AamBL0PFRR9nxUYGnUjrbNmgL0fzuqXRlxu3aO6Z-Z2X12EmKqsV93BmkZ6meN/pub?gid=0&single=true&output=csv';
+
+async function loadLeaderboard() {
+  try {
+    const response = await fetch(csvUrl);
+    if (!response.ok) throw new Error('Network response was not ok');
+
+    const csvText = await response.text();
+    const rows = csvText.trim().split('\n').map(row => row.split(','));
+
+    const table = document.createElement('table');
+    table.classList.add('leaderboard-table');
+
+    rows.forEach((row, i) => {
+      const tr = document.createElement('tr');
+      row.forEach((cell, j) => {
+        const isHeader = i === 0;
+        const td = document.createElement(isHeader ? 'th' : 'td');
+
+        if (!isHeader && j === 0) {
+          // This is the rank column, add medal for top 3
+          td.textContent = cell;
+          if (cell === '1') td.textContent += ' 🥇';
+          else if (cell === '2') td.textContent += ' 🥈';
+          else if (cell === '3') td.textContent += ' 🥉';
+        } else {
+          td.textContent = cell;
+        }
+
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
+
+    const container = document.getElementById('leaderboard-table');
+    container.innerHTML = '';
+    container.appendChild(table);
+
+  } catch (error) {
+    document.getElementById('leaderboard-table').textContent = 'Failed to load leaderboard.';
+    console.error('Error loading leaderboard:', error);
+  }
+}
+
+loadLeaderboard();
+
+</script>
+
+
+
+
+
+  <footer>
+    &copy; 2025 Ethical Hacking Game Hub — Created for Education Only.
+  </footer>
+
+
+</body>
+</html>
