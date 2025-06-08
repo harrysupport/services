@@ -84,7 +84,7 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaV3Provider, getToken } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updateEmail } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getDatabase, ref, onValue, onDisconnect, set, get, update, push } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
@@ -315,6 +315,8 @@ try {
 
     emailToUse = foundEmail;
   }
+
+  await getToken(appCheck, true); // important for reCAPTCHA v3
 
   // Try signing in with the resolved email
   const userCredential = await signInWithEmailAndPassword(auth, emailToUse, password);
