@@ -84,7 +84,7 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { initializeAppCheck, ReCaptchaV3Provider, getToken } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaV3Provider, getToken, getAppCheck } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updateEmail } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getDatabase, ref, onValue, onDisconnect, set, get, update, push } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
@@ -267,12 +267,12 @@ form.addEventListener('submit', async (e) => {
 
   // Get App Check token
   try {
-    const appCheckToken = await appCheck.getToken();
+    const appCheckTokenResponse = await getToken(getAppCheck(), /* forceRefresh */ true);
 
-    if (!appCheckToken.token) {
-      showMessage('reCAPTCHA verification failed. Please try again.', 'error');
-      return;
+    if (!appCheckTokenResponse || !appCheckTokenResponse.token) {
+      throw new Error("reCAPTCHA verification failed. Please try again.");
     }
+
   } catch (error) {
     showMessage('reCAPTCHA verification failed. Please try again.', 'error');
     return;
