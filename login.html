@@ -49,7 +49,8 @@
 
 
       <label for="password">Password</label>
-      <input type="password" id="password" required placeholder="Enter password" /><br><br>
+      <input type="password" id="password" required placeholder="Enter password" /><br>
+      
 
       <button type="submit" class="cta-btn">Login</button>
     </form>
@@ -78,13 +79,9 @@
 <!--Script for hambrug menu-->
 <script src="JS/menu.js"></script>
 
-<script src="https://www.google.com/recaptcha/api.js?render=6Ldq9FkrAAAAABUvXmwgYQn3CnquAj4SWQ7Tjt3z"></script>
-
-
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { initializeAppCheck, ReCaptchaV3Provider, getToken, getAppCheck } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app-check.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, updateEmail } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 import { getDatabase, ref, onValue, onDisconnect, set, get, update, push } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
@@ -102,15 +99,16 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
-const analytics = getAnalytics(app);
-
 
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider('6Ldq9FkrAAAAABUvXmwgYQn3CnquAj4SWQ7Tjt3z'),
-  isTokenAutoRefreshEnabled: true
+  isTokenAutoRefreshEnabled: true  // keeps App Check tokens fresh
 });
+
+
+const auth = getAuth(app);
+const db = getDatabase(app);
+const analytics = getAnalytics(app);
 
 
 
@@ -264,21 +262,6 @@ form.addEventListener('submit', async (e) => {
   const loginInput = form.email.value.trim(); // you use 'email' input for username or email
   const password = form.password.value.trim();
 
-
-  // Get App Check token
-  try {
-    const appCheckTokenResponse = await getToken(getAppCheck(), /* forceRefresh */ true);
-
-    if (!appCheckTokenResponse || !appCheckTokenResponse.token) {
-      throw new Error("reCAPTCHA verification failed. Please try again.");
-    }
-
-  } catch (error) {
-    showMessage('reCAPTCHA verification failed. Please try again.', 'error');
-    return;
-  }
-
-
   if (!loginInput || !password) {
     showMessage('Please fill in all fields.', 'error');
     return;
@@ -315,8 +298,6 @@ try {
 
     emailToUse = foundEmail;
   }
-
-  await getToken(appCheck, true); // important for reCAPTCHA v3
 
   // Try signing in with the resolved email
   const userCredential = await signInWithEmailAndPassword(auth, emailToUse, password);
@@ -384,8 +365,6 @@ forgotPasswordLink.addEventListener('click', (e) => {
 
 // Handle reset password submission
 forgotPasswordForm.addEventListener('submit', async (e) => {
-
-
   e.preventDefault();
   const email = document.getElementById('reset-email').value.trim();
 
