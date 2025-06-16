@@ -1,0 +1,970 @@
+/* Fonts + Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #f5f7fa;  /* Light gray-blue */
+  color: #333a44;       /* Dark slate gray */
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #f5f7fa 0%, #e1e6eb 100%);
+  z-index: -1;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  background: transparent;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50; /* Dark steel blue */
+  letter-spacing: 1px;
+}
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+nav ul li a {
+  color: #5d6d7e; /* Medium gray blue */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: #34495e; /* Dark slate blue */
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50; /* Dark steel blue */
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #7f8c8d; /* Soft gray */
+  margin-bottom: 2rem;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: #34495e; /* Dark slate blue */
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.cta-btn:hover {
+  background: #2c3e50; /* Darker steel blue */
+}
+
+/* Games Section */
+.games-section {
+  padding: 5rem 2rem;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+.game-card {
+  background: #ffffff; /* White */
+  border: 1px solid #d5d8dc; /* Soft light gray */
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(44, 62, 80, 0.1);
+}
+.game-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+}
+.game-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+.game-card p {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.feature {
+  max-width: 280px;
+  text-align: center;
+}
+.feature-icon {
+  font-size: 3.5rem;
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+.feature h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+.feature p {
+  color: #95a5a6;
+  font-size: 1rem;
+}
+
+/* Section titles */
+h2.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 3rem 0 1rem;
+  color: #2c3e50;
+}
+
+/* Difficulty badges */
+.difficulty {
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 25px;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  text-align: center;
+  border: 1.5px solid transparent;
+}
+
+.easy {
+  background-color: #d5edcd; /* Light green */
+  color: #4a6339; /* Dark green */
+  border-color: #b0c991; /* Medium green */
+}
+.medium {
+  background-color: #fcf3cf; /* Light yellow */
+  color: #b7950b; /* Golden yellow */
+  border-color: #f7dc6f;
+}
+.hard {
+  background-color: #f5b7b1; /* Light red/pink */
+  color: #c0392b; /* Dark red */
+  border-color: #ec7063;
+}
+
+
+/* Play button */
+.play-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+.play-btn:hover {
+  background-color: #34495e;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: separate; /* separate borders for nicer shadows */
+  border-spacing: 0 8px; /* space between rows */
+  margin-top: 10px;
+  font-family: 'Rajdhani', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border: none; /* remove default border */
+  background-color: #ffffff;
+  box-shadow: inset 0 -1px 0 #e0e0e0;
+}
+
+.leaderboard-table th {
+  background-color: #e8f0fe; /* subtle blue tint */
+  font-weight: 700;
+  color: #1a237e; /* dark blue */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.leaderboard-table tr {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard-table tr:hover td {
+  background-color: #f0f4ff; /* subtle hover highlight */
+  box-shadow: none;
+}
+
+.leaderboard-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #ddd; /* subtle row separation */
+}
+
+/* Optional: Align rank column to left for readability */
+.leaderboard-table td:first-child,
+.leaderboard-table th:first-child {
+  text-align: left;
+  padding-left: 24px;
+  width: 60px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Optional: Highlight top 3 ranks */
+.leaderboard-table tbody tr:nth-child(1) td {
+  font-weight: 700;
+  color: #d4af37; /* gold */
+}
+.leaderboard-table tbody tr:nth-child(2) td {
+  font-weight: 700;
+  color: #c0c0c0; /* silver */
+}
+.leaderboard-table tbody tr:nth-child(3) td {
+  font-weight: 700;
+  color: #cd7f32; /* bronze */
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #ffd700; /* Gold, change if needed */
+}
+
+.testimonial-carousel {
+  padding: 5rem 2rem;
+  background: #ffffff;
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+  border: 1px solid #d5d8dc;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: #f5f7fa;
+  border: 1px solid #d5d8dc;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.08);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.1);
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  color: #34495e;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* Section titles */
+h2.testimonial-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+.users-online-box {
+  background: #fefefe;
+  border: 2px solid #c1d1d9;
+  border-radius: 1rem;
+  max-width: 420px;
+  padding: 2rem 2.5rem;
+  margin: 3rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  transition: border-color 0.25s ease;
+  cursor: default;
+  margin-bottom: 100px;
+
+}
+
+.users-online-box:hover {
+  border-color: #6ca0dc;
+  box-shadow: 0 6px 20px rgba(108, 160, 220, 0.2);
+}
+
+.users-online-title {
+  font-weight: 700;
+  position: relative;
+  font-size: 1.7rem;
+  color: #385170;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.03em;
+}
+
+.users-online-title::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: #2980b9;       /* This is the blue color of the line */
+  left: 50%;
+  bottom: -6px;
+  border-radius: 2px;
+  transition: width 0.35s ease, left 0.35s ease;
+}
+
+.users-online-title:hover::after {
+  width: 60%;    /* Line expands to 60% width */
+  left: 20%;     /* Line shifts left to center under the text */
+}
+
+
+.live-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.users-online-count {
+  font-size: 3rem;
+  color: #1f3557;
+  font-weight: 800;
+  margin-bottom: 1.7rem;
+  letter-spacing: 0.05em;
+}
+
+.users-online-location {
+  color: #4c91c2;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+.users-online-countries-list {
+  max-height: 90px;
+  overflow-y: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid #c1d1d9;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3a5999;
+  text-align: left;
+  scrollbar-width: thin;
+  scrollbar-color: #6ca0dc #e3eaf2;
+  border-radius: 0 0 1rem 1rem;
+  background: #f9fbff;
+}
+
+.users-online-countries-list::-webkit-scrollbar {
+  width: 7px;
+}
+
+.users-online-countries-list::-webkit-scrollbar-track {
+  background: #e3eaf2;
+  border-radius: 10px;
+}
+
+.users-online-countries-list::-webkit-scrollbar-thumb {
+  background-color: #6ca0dc;
+  border-radius: 10px;
+  border: 2px solid #e3eaf2;
+}
+
+/* Container for login/signup forms */
+.auth-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.12);
+  padding: 3rem 2.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  color: #2c3e50;
+}
+
+/* Form title */
+.auth-container h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+/* Form fields */
+.auth-container label {
+  display: block;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 0.5rem;
+  border: 1.5px solid #d5d8dc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input[type="text"]:focus,
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  border-color: #34495e;
+  outline: none;
+  box-shadow: 0 0 6px rgba(52, 73, 94, 0.3);
+}
+
+/* Submit button */
+.auth-container button[type="submit"] {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #34495e;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button[type="submit"]:hover {
+  background-color: #2c3e50;
+}
+
+/* Inline error/success message container */
+.auth-message {
+  margin-bottom: 1.5rem;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Show message */
+.auth-message.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Error message style */
+.auth-message.error {
+  background-color: #f5b7b1;
+  color: #c0392b;
+  border: 1.5px solid #ec7063;
+}
+
+/* Success message style */
+.auth-message.success {
+  background-color: #d5edcd;
+  color: #4a6339;
+  border: 1.5px solid #b0c991;
+}
+
+/* Link under form */
+.auth-container .switch-auth {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #5d6d7e;
+}
+
+.auth-container .switch-auth a {
+  color: #34495e;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-container .switch-auth a:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+#messageBox {
+  display: none;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+
+/* Profile page container */
+.profile-container {
+  max-width: 600px;
+  margin: 3rem auto 6rem;
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.1);
+  color: #2c3e50; /* Dark steel blue */
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Profile page heading */
+.profile-container h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: #34495e;
+  letter-spacing: 1px;
+}
+
+/* Not signed in warning */
+#notSignedIn {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+/* Profile form styles */
+#profileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Form labels */
+#profileForm label {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Inputs and textarea */
+#profileForm input[type="text"],
+#profileForm input[type="email"],
+#profileForm textarea {
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  border: 1.5px solid #d5d8dc;
+  border-radius: 0.6rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #2c3e50;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+#profileForm input[type="text"]:focus,
+#profileForm input[type="email"]:focus,
+#profileForm textarea:focus {
+  outline: none;
+  border-color: #34495e;
+  box-shadow: 0 0 8px rgba(52, 73, 94, 0.3);
+}
+
+/* Buttons container for consistent layout */
+#profileForm > button,
+#profileForm > .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap;  /* keep buttons side by side on big screens */
+  margin-top: 1rem;
+}
+
+/* Buttons common styles: Edit, Save, Cancel */
+#editProfileBtn,
+#saveChangesBtn,
+#cancelChangesBtn {
+  padding: 0.65rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  width: 140px;
+  max-width: 140px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  
+  
+}
+
+/* Edit and Save buttons - blue */
+#editProfileBtn,
+#saveChangesBtn {
+  background-color: #2980b9;
+  color: white;
+}
+
+#editProfileBtn:hover,
+#saveChangesBtn:hover {
+  background-color: #1c5980;
+}
+
+/* Cancel button - red */
+#cancelChangesBtn {
+  display: inline-flex;              /* Flex container */
+  align-items: center;              /* Vertically center */
+  justify-content: center;          /* Horizontally center */
+  background-color: #e74c3c;
+  color: white;
+  padding: 0;                       /* Remove padding so height is consistent */
+  height: 42px;                     /* Set a fixed height */
+  width: 140px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1;                   /* Remove extra vertical space */
+}
+
+#cancelChangesBtn:hover {
+  background-color: #c0392b;
+}
+
+/* Change Password button */
+#changePasswordBtn {
+  padding: 0.65rem 1.8rem;
+  background-color: #e67e22; /* warm orange color */
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 160px;
+  max-width: 160px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin-top: 0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+#changePasswordBtn:hover {
+  background-color: #d35400;
+}
+
+/* Button container to align Save and Cancel side by side */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.field-error-message {
+  color: #d93025; /* typical red for errors */
+  font-size: 0.9rem;
+  visibility: hidden; /* hide by default */
+}
+
+.field-error-message.visible {
+  visibility: visible;
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 0.5rem;
+  border: 1.5px solid #d5d8dc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #34495e;
+  outline: none;
+  box-shadow: 0 0 6px rgba(52, 73, 94, 0.3);
+}
+
+.return-button {
+  display: inline-block;
+  margin: 10px 0 20px;
+  padding: 6px 16px;
+  background-color: #2ecc71;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.return-button:hover {
+  background-color: #27ae60;
+}
+
+ /* Hamburger Button */
+.hamburger {
+  display: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+  z-index: 2000;
+  color: #2c3e50; /* Dark steel blue */
+  transition: color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+.hamburger:hover {
+  color: #34495e; /* Dark slate blue */
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(180deg, #e6e9ef 0%, #d6d6d6 100%);
+  box-shadow: -4px 0 20px rgba(44, 62, 80, 0.25);
+  color: #333a44; /* Dark slate gray */
+  z-index: 1900;
+  transition: right 0.35s ease-in-out;
+  padding: 4rem 2.5rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-left: 5px solid #2c3e50; /* Dark steel blue accent */
+  border-radius: 0 0 0 14px;
+}
+
+/* Menu Items */
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.0rem;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 1rem 1.4rem;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #333a44;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.25s ease;
+  box-shadow: inset 0 0 0 0 transparent;
+  user-select: none;
+}
+.mobile-menu ul li a:hover,
+.mobile-menu ul li a:focus {
+  background-color: #6a8db1; /* Dark slate blue highlight */
+  color: #f5f7fa; /* Light text on hover */
+  box-shadow: inset 0 0 10px #556b81aa;
+  outline: none;
+}
+
+/* This is for the sected part of the menu so users know what page they are on */
+.mobile-menu ul li a.selected {
+  background-color: #34495e; /* Dark slate blue highlight */
+  color: #f5f7fa; /* Light text on hover */
+  box-shadow: inset 0 0 10px #34495eaa;
+  outline: none;
+}
+
+/* Show menu */
+.mobile-menu.show {
+  right: 0;
+  display: flex;
+}
+
+/* This is for the switching either profile or login on all pages  */
+#login-link,
+#profile-link,
+#login-link-Desktop,
+#profile-link-Desktop {
+  display: none;
+  visibility: hidden;
+}
+
+.show-password-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.text-display {
+  margin-bottom: 13px;
+}
+
+/* Hide the native checkbox */
+.show-password-wrapper input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #777;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  outline-offset: 2px;
+}
+
+/* Checkbox checked state */
+.show-password-wrapper input[type="checkbox"]:checked {
+  background-color: #34495e;
+  border-color: #34495e;
+}
+
+/* Checkmark using ::after */
+.show-password-wrapper input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Hover effect */
+.show-password-wrapper input[type="checkbox"]:hover {
+  border-color: #34495e;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobile-menu.show {
+    display: flex;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  nav {
+    padding: 1.5rem 2rem;
+  }
+  .profile-container {
+    margin: 2rem 1rem 4rem;
+    padding: 2rem 1.5rem;
+  }
+  #profileForm > button,
+  #profileForm > .button-container {
+    flex-wrap: wrap; /* allow wrapping on small screens */
+  }
+  #editProfileBtn,
+  #saveChangesBtn,
+  #cancelChangesBtn,
+  #changePasswordBtn {
+    width: 100%;
+    max-width: none;
+    padding: 0.75rem 0;
+  }
+}
+
+/* Footer adjustment */
+footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  background: transparent;
+  position: relative;
+  margin-top: 4rem;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.5px;
+}
+
